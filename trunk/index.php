@@ -38,10 +38,14 @@ html,body {
 -->
 </style>
 
-<link rel="stylesheet" href="../welcome/style.css">
+<link rel="stylesheet" href="../welcome/style.css" />
 </head>
 <body bgcolor="#ffffff">
-      <div class="header"><a href="http://www.lynks.ru/"><img src="../../welcome/lynks-dist.png"></a><a href="../index.php"><? if ($ver == "3") { ?><img src="../welcome/logo-trix.jpg"><? } else { ?><img src="../welcome/logo-trix.jpg"><? } ?></a></div>
+      <div class="header">
+          <a href="http://www.lynks.ru/"><img src="../../welcome/lynks-dist.png" alt="" /></a>
+          <a href="../index.php">
+                <? if ($ver == "3") { ?><img src="../welcome/logo-trix.jpg" alt="" />
+                <? } else { ?><img src="../welcome/logo-trix.jpg" alt="" /><? } ?></a></div>
       <div class="message">AJAX Operator Panel</div>
       <div>
         
