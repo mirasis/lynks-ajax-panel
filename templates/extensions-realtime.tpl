@@ -354,7 +354,7 @@ input#CallControlsExtenFilter
         k=0;
         agentnum='xxx';
         last_state = {};
-        //закешируем класс .stat8 чтоб выборка была быстрее
+        //Р·Р°РєРµС€РёСЂСѓРµРј РєР»Р°СЃСЃ .stat8 С‡С‚РѕР± РІС‹Р±РѕСЂРєР° Р±С‹Р»Р° Р±С‹СЃС‚СЂРµРµ
         stat8=$('.stat8');
         $('.twittyMenu').twittymenu();
         alreadycookierestore=0;
@@ -374,10 +374,10 @@ input#CallControlsExtenFilter
         Sys_Status_timer = setInterval("SysStatusQuery()",3000);
         StatusQuery();             
         
-        //вставим задержку в одну секунду, иначе listExten еще не успеет отработать и клонировать будет нечего
+        //РІСЃС‚Р°РІРёРј Р·Р°РґРµСЂР¶РєСѓ РІ РѕРґРЅСѓ СЃРµРєСѓРЅРґСѓ, РёРЅР°С‡Рµ listExten РµС‰Рµ РЅРµ СѓСЃРїРµРµС‚ РѕС‚СЂР°Р±РѕС‚Р°С‚СЊ Рё РєР»РѕРЅРёСЂРѕРІР°С‚СЊ Р±СѓРґРµС‚ РЅРµС‡РµРіРѕ
         setTimeout(function()
         { 
-            // при загрузке восстановим из кукисов пользовательские кнопки
+            // РїСЂРё Р·Р°РіСЂСѓР·РєРµ РІРѕСЃСЃС‚Р°РЅРѕРІРёРј РёР· РєСѓРєРёСЃРѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РєРЅРѕРїРєРё
             if($.cookie("user_buttons"+LogExtenNum)) {
                 var buttons = 'none'+$.cookie("user_buttons"+LogExtenNum);
                 var s_buttons = buttons.split(":");
@@ -393,7 +393,7 @@ input#CallControlsExtenFilter
         }, 1000);
        
     }
-        //функция для подписи неактивных полей ввода
+        //С„СѓРЅРєС†РёСЏ РґР»СЏ РїРѕРґРїРёСЃРё РЅРµР°РєС‚РёРІРЅС‹С… РїРѕР»РµР№ РІРІРѕРґР°
         (function($) {
 	$.fn.inputDefualts = function(options) {
 		var defaults = { cl: 'inactive', text: this.val() }, opts = $.extend(defaults, options);	
@@ -432,23 +432,23 @@ input#CallControlsExtenFilter
         }
         
         var j=0;
-        //периодический запрос состояния зарегестрированного оператора а также всех экстеншенов
+        //РїРµСЂРёРѕРґРёС‡РµСЃРєРёР№ Р·Р°РїСЂРѕСЃ СЃРѕСЃС‚РѕСЏРЅРёСЏ Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°РЅРЅРѕРіРѕ РѕРїРµСЂР°С‚РѕСЂР° Р° С‚Р°РєР¶Рµ РІСЃРµС… СЌРєСЃС‚РµРЅС€РµРЅРѕРІ
         function SysStatusQuery()
         {
         
             $.getJSON("extensions-realtime.php?query=currentstate&LogExtenNum="+LogExtenNum,
                 function(obj)
                 { 
-                    //пропарсим состояние агента
+                    //РїСЂРѕРїР°СЂСЃРёРј СЃРѕСЃС‚РѕСЏРЅРёРµ Р°РіРµРЅС‚Р°
                     obj_agent=obj['agentstate'];
-                    //пропарсим и поменяем состояние экстеншенов
+                    //РїСЂРѕРїР°СЂСЃРёРј Рё РїРѕРјРµРЅСЏРµРј СЃРѕСЃС‚РѕСЏРЅРёРµ СЌРєСЃС‚РµРЅС€РµРЅРѕРІ
                     obj_conn=obj['connections'];
-                    //периодически удаляем сообщение статуса, чтоб не мозолило глаза оператору
+                    //РїРµСЂРёРѕРґРёС‡РµСЃРєРё СѓРґР°Р»СЏРµРј СЃРѕРѕР±С‰РµРЅРёРµ СЃС‚Р°С‚СѓСЃР°, С‡С‚РѕР± РЅРµ РјРѕР·РѕР»РёР»Рѕ РіР»Р°Р·Р° РѕРїРµСЂР°С‚РѕСЂСѓ
                     $('#Messages').html('&nbsp;');
                     
                     
 
-                    j=j+1;//каждая итерация добавляет класс к используемому элементу с уникальным номером
+                    j=j+1;//РєР°Р¶РґР°СЏ РёС‚РµСЂР°С†РёСЏ РґРѕР±Р°РІР»СЏРµС‚ РєР»Р°СЃСЃ Рє РёСЃРїРѕР»СЊР·СѓРµРјРѕРјСѓ СЌР»РµРјРµРЅС‚Сѓ СЃ СѓРЅРёРєР°Р»СЊРЅС‹Рј РЅРѕРјРµСЂРѕРј
                     if(obj_conn==null)
                         obj_conn="";
                     jQuery.each(obj_conn, function(i, val) 
@@ -460,14 +460,14 @@ input#CallControlsExtenFilter
                         $("div#exten_"+i+" div#Duration div").replaceWith("<div class=\"value"+j+"\">"+val["Duration"]+"</div>");
                     });
                     
-                    //все дивы с номерами предыдущей итерации возвращаем на прежнее место
+                    //РІСЃРµ РґРёРІС‹ СЃ РЅРѕРјРµСЂР°РјРё РїСЂРµРґС‹РґСѓС‰РµР№ РёС‚РµСЂР°С†РёРё РІРѕР·РІСЂР°С‰Р°РµРј РЅР° РїСЂРµР¶РЅРµРµ РјРµСЃС‚Рѕ
                     //$(".value" + (j-1) ).remove();
                     $(".svalue" + (j-1) ).replaceWith('<div id="Status" class="stat0">&nbsp;</div>');
                     $(".value" + (j-1) ).replaceWith('<div class="value'+j+'">&nbsp;</div>');
-                    //закешируем класс .stat8 чтоб выборка была быстрее
+                    //Р·Р°РєРµС€РёСЂСѓРµРј РєР»Р°СЃСЃ .stat8 С‡С‚РѕР± РІС‹Р±РѕСЂРєР° Р±С‹Р»Р° Р±С‹СЃС‚СЂРµРµ
                     stat8=$('.stat8');
                         
-                    //В правом углу отобразим имя и номер с кем соединен, запомним номер канала
+                    //Р’ РїСЂР°РІРѕРј СѓРіР»Сѓ РѕС‚РѕР±СЂР°Р·РёРј РёРјСЏ Рё РЅРѕРјРµСЂ СЃ РєРµРј СЃРѕРµРґРёРЅРµРЅ, Р·Р°РїРѕРјРЅРёРј РЅРѕРјРµСЂ РєР°РЅР°Р»Р°
                     if(obj_conn[LogExtenNum] !== undefined)
                     {
                         curr_chan=obj_conn[LogExtenNum]['Channel'];
@@ -489,15 +489,15 @@ input#CallControlsExtenFilter
                         $('#AgentControlsCallerID').html(curr_num+":");
                         $('#AgentControlsCustomer').html(curr_name);
                         $('#status4').html(curr_chan);
-                        //проверим, чтобы канал был установлен и был реальным
+                        //С‡С‚РѕР±С‹ РєР°РЅР°Р» Р±С‹Р» СѓСЃС‚Р°РЅРѕРІР»РµРЅ Рё Р±С‹Р» СЂРµР°Р»СЊРЅС‹Рј
                         var re = /(SIP)|(IAX2)|(LOCAL)|(ZAP)|(DAHDI)/;
                         var chantest = re.test(curr_chan);
                         if($('#CallControlsTransfer').hasClass("disabled") && chantest)
                         {
-                            //включим кнопки, если нет номера абонента
+                            //РІРєР»СЋС‡РёРј РєРЅРѕРїРєРё, РµСЃР»Рё РЅРµС‚ РЅРѕРјРµСЂР° Р°Р±РѕРЅРµРЅС‚Р°
                             $('#CallControlsTransfer').removeClass('disabled'); 
                             $('#CallControlsHangup').removeClass('disabled'); 
-                            //Восстановим обработчики
+                            //Р’РѕСЃСЃС‚Р°РЅРѕРІРёРј РѕР±СЂР°Р±РѕС‚С‡РёРєРё
                             $("#CallControlsTransfer").live("click",CallControlsTransfer);
                             $("#CallControlsHangup").live("click",CallControlsHangup);
                         }
@@ -507,10 +507,10 @@ input#CallControlsExtenFilter
                         $('#status4').html(curr_chan);
                         if( !$('#CallControlsTransfer').hasClass("disabled"))
                         {
-                            //отключим кнопки, если нет номера абонента
+                            //РѕС‚РєР»СЋС‡РёРј РєРЅРѕРїРєРё, РµСЃР»Рё РЅРµС‚ РЅРѕРјРµСЂР° Р°Р±РѕРЅРµРЅС‚Р°
                             $('#CallControlsTransfer').addClass('disabled'); 
                             $('#CallControlsHangup').addClass('disabled'); 
-                            //уберем обработчики
+                            //СѓР±РµСЂРµРј РѕР±СЂР°Р±РѕС‚С‡РёРєРё
                           //  $("div.ext_buttons").live("click", )
                             $("#CallControlsTransfer").die("click");
                             $("#CallControlsHangup").die("click");
@@ -519,14 +519,14 @@ input#CallControlsExtenFilter
 
 
                     
-                    //удалим все объекты
+                    //СѓРґР°Р»РёРј РІСЃРµ РѕР±СЉРµРєС‚С‹
                     delete obj_agent;
                     //delete obj_conn;
                     delete obj;
                     
                 });
         }; 
-        //Проверка отметки чекбокса сохранения номера в кукисах
+        //РџСЂРѕРІРµСЂРєР° РѕС‚РјРµС‚РєРё С‡РµРєР±РѕРєСЃР° СЃРѕС…СЂР°РЅРµРЅРёСЏ РЅРѕРјРµСЂР° РІ РєСѓРєРёСЃР°С…
         function CallControlsUserNumberSave()
         {
             if($("#CallControlsUserNumberSave").is(':checked')==true)
@@ -539,7 +539,7 @@ input#CallControlsExtenFilter
                 $('#status4').html("unchecked!!!");                
             }
         };
-        //периодический запрос текущего состояния экстеншенов
+        //РїРµСЂРёРѕРґРёС‡РµСЃРєРёР№ Р·Р°РїСЂРѕСЃ С‚РµРєСѓС‰РµРіРѕ СЃРѕСЃС‚РѕСЏРЅРёСЏ СЌРєСЃС‚РµРЅС€РµРЅРѕРІ
         function StatusQuery()
         {
             $.getJSON("extensions-realtime.php?query=extstate",
@@ -569,7 +569,7 @@ input#CallControlsExtenFilter
                     });
                 });
         };
-        // Для сортировки по номеру в очереди (возрастание)
+        // Р”Р»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїРѕ РЅРѕРјРµСЂСѓ РІ РѕС‡РµСЂРµРґРё (РІРѕР·СЂР°СЃС‚Р°РЅРёРµ)
         //sorted=$(people).sort(sortLastNameDesc);
         jQuery.fn.sort = function() 
         {  
@@ -676,7 +676,7 @@ input#CallControlsExtenFilter
                     $("div.queue_content")
                         .empty()
                         .html(queue_content);
-                    //и сортируемыми 
+                    //Рё СЃРѕСЂС‚РёСЂСѓРµРјС‹РјРё
                     $(".ext_buttons").draggable({
                                     scroll : false,
                                     revert : true,
@@ -695,7 +695,7 @@ input#CallControlsExtenFilter
                                     helper : 'clone',
                                     opacity : 0.6
                             }); */
-                    //добавим функции сворачивания для подразделов панели
+                    //РґРѕР±Р°РІРёРј С„СѓРЅРєС†РёРё СЃРІРѕСЂР°С‡РёРІР°РЅРёСЏ РґР»СЏ РїРѕРґСЂР°Р·РґРµР»РѕРІ РїР°РЅРµР»Рё
                     $("#user_set_a").click(function () {
                       $("#user_set_a .ui-icon").toggleClass('ui-icon-triangle-1-s');
                       $("#user_set .ext_buttons").toggle();
@@ -712,15 +712,15 @@ input#CallControlsExtenFilter
                       $("#trunk_sh_tg .ui-icon").toggleClass('ui-icon-triangle-1-s');
                       $(".trunk_content .ext_buttons").toggle();
                     });
-                    //добавим функции сворачивания для подразделов панелей очередей
+                    //РґРѕР±Р°РІРёРј С„СѓРЅРєС†РёРё СЃРІРѕСЂР°С‡РёРІР°РЅРёСЏ РґР»СЏ РїРѕРґСЂР°Р·РґРµР»РѕРІ РїР°РЅРµР»РµР№ РѕС‡РµСЂРµРґРµР№
  
-                    //вернем текущее состояние
+                    //РІРµСЂРЅРµРј С‚РµРєСѓС‰РµРµ СЃРѕСЃС‚РѕСЏРЅРёРµ
                     //obj_conn=
                     //SysStatusQuery();
                     StatusQuery();
                     content='';
                     obj=null;
-                    //навесим обработчик подсветки соединенных
+                    //РЅР°РІРµСЃРёРј РѕР±СЂР°Р±РѕС‚С‡РёРє РїРѕРґСЃРІРµС‚РєРё СЃРѕРµРґРёРЅРµРЅРЅС‹С…
                     SetExtButtControls(".ext_buttons");
                     SetHints();
                     delete obj;
@@ -730,14 +730,14 @@ input#CallControlsExtenFilter
                     delete app_content;
                 });
         };
-        //обработчик подсветки соединенных абонентов
+        //РѕР±СЂР°Р±РѕС‚С‡РёРє РїРѕРґСЃРІРµС‚РєРё СЃРѕРµРґРёРЅРµРЅРЅС‹С… Р°Р±РѕРЅРµРЅС‚РѕРІ
         function SetExtButtControls(selector)
         {
             selected_obj=$(selector);
             selected_obj.unbind()
             selected_obj.hover(
                 function () {
-                    //вычисляем кто с кем соединен, текущие каналы и тп.
+                    //РІС‹С‡РёСЃР»СЏРµРј РєС‚Рѕ СЃ РєРµРј СЃРѕРµРґРёРЅРµРЅ, С‚РµРєСѓС‰РёРµ РєР°РЅР°Р»С‹ Рё С‚Рї.
                     callnum='';
                     queuenum='';
                     exthovernum='';
@@ -761,7 +761,7 @@ input#CallControlsExtenFilter
                 }
             );  
         }
-        //назначает высплывающие подсказки
+        //РЅР°Р·РЅР°С‡Р°РµС‚ РІС‹СЃРїР»С‹РІР°СЋС‰РёРµ РїРѕРґСЃРєР°Р·РєРё
         function SetHints()
         {
             $('.hint').bind('mouseover', function()
@@ -784,7 +784,7 @@ input#CallControlsExtenFilter
                 });
             });
         }
-        //очистим пользовательские кнопки при нажатии
+        //РѕС‡РёСЃС‚РёРј РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРёРµ РєРЅРѕРїРєРё РїСЂРё РЅР°Р¶Р°С‚РёРё
         function CallControlsUserSetClear()
         {
             $('#user_set .ext_buttons').replaceWith('');
@@ -792,14 +792,14 @@ input#CallControlsExtenFilter
             $("#status6").html('null');   
             return false;
         }
-        //AJAX фильтрация кнопок на панели
+        //AJAX С„РёР»СЊС‚СЂР°С†РёСЏ РєРЅРѕРїРѕРє РЅР° РїР°РЅРµР»Рё
         function CallControlsLookup(needle)
         {
             if(needle.length >=1)
             {
                 $("#CallControlsExtenFilterClear").live("click",CallControlsExtenFilterClear);
                 $('#CallControlsExtenFilterClear').removeClass('disabled');
-                //навешиваем обработчик события на все кнопки экстенов
+                //РЅР°РІРµС€РёРІР°РµРј РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёСЏ РЅР° РІСЃРµ РєРЅРѕРїРєРё СЌРєСЃС‚РµРЅРѕРІ
                 $("div.ext_buttons").live("click", function(e){
                     extselnum=this.children[2].innerHTML;
                     extselname=this.children[3].innerHTML;
@@ -816,7 +816,7 @@ input#CallControlsExtenFilter
             }
                 
         };
-        //функция очищает поле ввода номера при клике на кнопку
+        //С„СѓРЅРєС†РёСЏ РѕС‡РёС‰Р°РµС‚ РїРѕР»Рµ РІРІРѕРґР° РЅРѕРјРµСЂР° РїСЂРё РєР»РёРєРµ РЅР° РєРЅРѕРїРєСѓ
         function CallControlsExtenFilterClear(logintype)
         {
             $("#CallControlsExtenFilter").val('');
@@ -846,9 +846,9 @@ input#CallControlsExtenFilter
                 
                 listExten('',sorting);
             }else{
-                //скрываем все, что к экстенам не относится
+                //СЃРєСЂС‹РІР°РµРј РІСЃРµ, С‡С‚Рѕ Рє СЌРєСЃС‚РµРЅР°Рј РЅРµ РѕС‚РЅРѕСЃРёС‚СЃСЏ
                 $("#trunk_content").addClass('nodisplay');
-                //навешиваем обработчик события на все кнопки экстенов
+                //РЅР°РІРµС€РёРІР°РµРј РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёСЏ РЅР° РІСЃРµ РєРЅРѕРїРєРё СЌРєСЃС‚РµРЅРѕРІ
                 $("div.ext_buttons").live("click", function(e){
                     extselnum=this.children[2].innerHTML;
                     extselname=this.children[3].innerHTML;
@@ -862,7 +862,7 @@ input#CallControlsExtenFilter
                             delete obj;
                         });
                     $("div.ext_buttons").die("click");
-                    //показываем скрытое
+                    //РїРѕРєР°Р·С‹РІР°РµРј СЃРєСЂС‹С‚РѕРµ
                     $("#trunk_content").removeClass('nodisplay');    
                                  
                 });
@@ -888,9 +888,9 @@ input#CallControlsExtenFilter
                     
                 listExten('',sorting);
             }else{
-                //скрываем все, что к экстенам не относится
+                //СЃРєСЂС‹РІР°РµРј РІСЃРµ, С‡С‚Рѕ Рє СЌРєСЃС‚РµРЅР°Рј РЅРµ РѕС‚РЅРѕСЃРёС‚СЃСЏ
                 $("#trunk_content").addClass('nodisplay');
-                //навешиваем обработчик события на все кнопки экстенов
+                //РЅР°РІРµС€РёРІР°РµРј РѕР±СЂР°Р±РѕС‚С‡РёРє СЃРѕР±С‹С‚РёСЏ РЅР° РІСЃРµ РєРЅРѕРїРєРё СЌРєСЃС‚РµРЅРѕРІ
                 $("div.ext_buttons").live("click", function(e){
                     extselnum=this.children[2].innerHTML;
                     extselname=this.children[3].innerHTML;
@@ -901,14 +901,14 @@ input#CallControlsExtenFilter
                             delete obj;
                         });
                     $("div.ext_buttons").die("click");
-                    //показываем скрытое
+                    //пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     $("#trunk_content").removeClass('nodisplay');    
                                  
                 });
             }
             ;
         };
-        //обработка нажатия интера
+        //РѕР±СЂР°Р±РѕС‚РєР° РЅР°Р¶Р°С‚РёСЏ РёРЅС‚РµСЂР°
         function CallControlsKeys(event)
         {
             if(event.keyCode==13)
@@ -951,7 +951,7 @@ input#CallControlsExtenFilter
             <span class="LrButton" onclick="CallControlsCall()" id="CallControlsCall">Call</span>
             <span class="LrButton disabled"  id="CallControlsTransfer" >Transfer</span>
             <input size="10" id="CallControlsUserNumber" type="text"    />
-            <span > <input size="10"  class="ui-fix" type="checkbox" value="" name="Save" id="CallControlsUserNumberSave" onclick="CallControlsUserNumberSave()" />Save<span>
+            <span> <input size="10"  class="ui-fix" type="checkbox" value="" name="Save" id="CallControlsUserNumberSave" onclick="CallControlsUserNumberSave()" />Save</span>
             <div class="elems2IR" style="float: right; color:white;background-color: #00cc00; ">
                 <nobr>
                     <b>
@@ -960,7 +960,7 @@ input#CallControlsExtenFilter
                     </b>
                 </nobr>
             </div>  
-            <div class="elems2IR" id="Messages" style="float: right; background-color: #yellow; "></div>
+            <div class="elems2IR" id="Messages" style="float: right; background-color: yellow; "></div>
             
         </div>
 
